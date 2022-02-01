@@ -100,7 +100,7 @@ function errorEmbed($description)
 
 try {
     Invoke-WebRequest -Uri "$seadexURL/export?format=csv" -OutFile "$rootDir\$latestFileName"
-    (Get-Content "$rootDir\$latestFileName" | Select-Object -Skip 1) | Set-Content "$rootDir\$latestFileName"
+    (Get-Content "$rootDir\$latestFileName" | Select-Object -Skip 2) | Set-Content "$rootDir\$latestFileName"
 }
 catch {
     errorEmbed "Failed to Download new CSV (TV)"
